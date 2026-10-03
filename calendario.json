@@ -1,6 +1,6 @@
 {
-  "semana": "Semana tipo",
-  "inicio": "",
+  "semana": "Semana del 28 de septiembre al 4 de octubre de 2026",
+  "inicio": "2026-09-28",
   "nota": "",
   "dias": [
     {
@@ -11,11 +11,11 @@
       "dia": "Martes",
       "bloques": [
         {
-          "momento": "Noche",
+          "momento": "",
           "hora": "",
-          "actividad": "Pista",
+          "actividad": "Trote suave",
           "lugar": "",
-          "tipo": "pista"
+          "tipo": "trote"
         }
       ]
     },
@@ -23,70 +23,33 @@
       "dia": "Miércoles",
       "bloques": [
         {
-          "momento": "Mañana",
+          "momento": "",
           "hora": "",
           "actividad": "Trote suave",
           "lugar": "",
           "tipo": "trote"
-        },
-        {
-          "momento": "Noche",
-          "hora": "",
-          "actividad": "Ruta nocturna",
-          "lugar": "",
-          "tipo": "ruta"
         }
       ]
     },
     {
       "dia": "Jueves",
-      "bloques": [
-        {
-          "momento": "Mañana",
-          "hora": "",
-          "actividad": "Canicross",
-          "lugar": "",
-          "tipo": "canicross"
-        },
-        {
-          "momento": "Noche",
-          "hora": "",
-          "actividad": "Bikejoring",
-          "lugar": "",
-          "tipo": "bikejoring"
-        }
-      ]
+      "bloques": []
     },
     {
       "dia": "Viernes",
       "bloques": [
         {
-          "momento": "Mañana",
+          "momento": "",
           "hora": "",
-          "actividad": "Bici",
+          "actividad": "Trote suave",
           "lugar": "",
-          "tipo": "bici"
-        },
-        {
-          "momento": "Noche",
-          "hora": "",
-          "actividad": "Bikejoring",
-          "lugar": "",
-          "tipo": "bikejoring"
+          "tipo": "trote"
         }
       ]
     },
     {
       "dia": "Sábado",
-      "bloques": [
-        {
-          "momento": "",
-          "hora": "",
-          "actividad": "Bikejoring / distancia larga",
-          "lugar": "",
-          "tipo": "bikejoring"
-        }
-      ]
+      "bloques": []
     },
     {
       "dia": "Domingo",
@@ -94,9 +57,9 @@
         {
           "momento": "",
           "hora": "",
-          "actividad": "Bici en Tolimán",
+          "actividad": "Querétaro Maratón",
           "lugar": "",
-          "tipo": "bici"
+          "tipo": "maraton"
         }
       ]
     }
