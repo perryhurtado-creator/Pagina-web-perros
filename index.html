@@ -107,6 +107,24 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
 .leaflet-control-attribution a{color:#087443}
 .leaflet-grab{cursor:grab}.leaflet-dragging .leaflet-grab{cursor:grabbing}
 @media (max-width:760px){.map{height:320px}}
+
+.legend{display:flex;flex-wrap:wrap;gap:8px 18px;list-style:none;padding:0;margin:0 0 18px;font-weight:700;font-size:.95rem}
+.legend i{display:inline-block;width:14px;height:14px;border-radius:50%;border:3px solid var(--ink);margin-right:6px;vertical-align:-1px}
+.week{display:grid;grid-template-columns:repeat(7,1fr);gap:12px}
+.day{background:var(--card);border:4px solid var(--ink);border-radius:16px;padding:12px;display:flex;flex-direction:column;gap:10px;min-width:0}
+.day.hoy{background:var(--green);color:var(--on-green)}
+.day h3{font-family:var(--display);font-weight:700;font-size:1.05rem;margin:0;line-height:1.1}
+.day h3 small{display:block;font-family:var(--body);font-weight:400;font-size:.88rem;opacity:.8;margin-top:2px}
+.blk{background:var(--bg);color:var(--ink);border:3px solid var(--ink);border-left-width:10px;border-radius:10px;padding:8px 10px;line-height:1.25}
+.blk .when{display:block;font-size:.8rem;color:var(--muted);font-weight:700}
+.blk b{display:block;font-family:var(--display)}
+.blk .lugar{display:block;font-size:.88rem;color:var(--muted)}
+.blk.t-bikejoring{border-left-color:var(--green)}.blk.t-canicross{border-left-color:var(--red)}.blk.t-bici{border-left-color:var(--azul)}
+.blk.rest{border-style:dashed;border-left-width:3px;text-align:center;color:var(--muted);font-weight:700}
+.band.tips{grid-template-columns:1fr;gap:16px;margin-top:32px}
+.band.tips h2{margin:0}
+.band.tips .chips li{background:var(--bg);color:var(--ink)}
+@media (max-width:1020px){.week{grid-template-columns:repeat(auto-fill,minmax(220px,1fr))}}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 </head>
@@ -170,7 +188,15 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
     <div id="lista-rutas"></div>
     <p class="cap">Seguimos sumando rutas, una por una.</p>
   </section>
-  <section class="page" id="calendario" data-title="Calendario"><div class="soon"><h2 style="margin-top:0">Calendario</h2><p>Aquí irá el calendario semanal de salidas.</p><p><a href="#inicio">Volver al inicio</a></p></div></section>
+  <section class="page" id="calendario" data-title="Calendario">
+    <h2 style="margin-top:0">Calendario semanal</h2>
+    <p class="intro" id="cal-semana"></p>
+    <ul class="legend"><li><i style="background:var(--green)"></i>Bikejoring</li><li><i style="background:var(--red)"></i>Canicross</li><li><i style="background:var(--azul)"></i>Bici</li><li><i style="background:var(--ink)"></i>Otras actividades</li></ul>
+    <div class="week" id="cal"></div>
+    <p class="cap" id="cal-nota" style="margin-top:14px"></p>
+    <div class="band tips"><div><h2>Juntos somos más fuertes, juntos corremos más lejos.</h2></div>
+      <ul class="chips"><li>Hidrata a tu perro</li><li>Revisa su equipo</li><li>Respeta sus límites</li><li>Disfruta el camino</li></ul></div>
+  </section>
   <section class="page" id="galeria" data-title="Galería"><div class="soon"><h2 style="margin-top:0">Galería</h2><p>Aquí irán las fotos del equipo, los carteles y los logos de temporada.</p><p><a href="#inicio">Volver al inicio</a></p></div></section>
   <section class="page" id="nosotros" data-title="Nosotros"><div class="soon"><h2 style="margin-top:0">Nosotros</h2><p>Aquí irá la historia de la comunidad y cómo sumarse.</p><p><a href="#inicio">Volver al inicio</a></p></div></section>
 </main>
@@ -231,6 +257,28 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
     });
   };
   if(location.hash==='#rutas')initMaps();
+})();
+</script>
+<script>var CAL={"semana":"Semana tipo","inicio":"","nota":"","dias":[{"dia":"Lunes","bloques":[]},{"dia":"Martes","bloques":[{"momento":"Noche","hora":"","actividad":"Pista","lugar":"","tipo":"pista"}]},{"dia":"Miércoles","bloques":[{"momento":"Mañana","hora":"","actividad":"Trote suave","lugar":"","tipo":"trote"},{"momento":"Noche","hora":"","actividad":"Ruta nocturna","lugar":"","tipo":"ruta"}]},{"dia":"Jueves","bloques":[{"momento":"Mañana","hora":"","actividad":"Canicross","lugar":"","tipo":"canicross"},{"momento":"Noche","hora":"","actividad":"Bikejoring","lugar":"","tipo":"bikejoring"}]},{"dia":"Viernes","bloques":[{"momento":"Mañana","hora":"","actividad":"Bici","lugar":"","tipo":"bici"},{"momento":"Noche","hora":"","actividad":"Bikejoring","lugar":"","tipo":"bikejoring"}]},{"dia":"Sábado","bloques":[{"momento":"","hora":"","actividad":"Bikejoring / distancia larga","lugar":"","tipo":"bikejoring"}]},{"dia":"Domingo","bloques":[{"momento":"","hora":"","actividad":"Bici en Tolimán","lugar":"","tipo":"bici"}]}]};
+(function(){
+  var MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
+  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
+  function draw(c){
+    var start=c.inicio?new Date(c.inicio+'T12:00:00'):null,now=new Date();now.setHours(12,0,0,0);
+    document.getElementById('cal-semana').textContent=c.semana||'';
+    var nota=document.getElementById('cal-nota');nota.textContent=c.nota||'';nota.style.display=c.nota?'':'none';
+    document.getElementById('cal').innerHTML=c.dias.map(function(d,i){
+      var fecha='',hoy=false;
+      if(start&&!isNaN(start)){var dt=new Date(start.getTime()+i*86400000);fecha=dt.getDate()+' de '+MESES[dt.getMonth()];hoy=Math.round((now-dt)/86400000)===0;}
+      var bl=(d.bloques&&d.bloques.length)?d.bloques.map(function(b){
+        var when=[b.momento,b.hora].filter(Boolean).join(' · ');
+        return '<div class="blk t-'+esc(b.tipo||'otra')+'">'+(when?'<span class="when">'+esc(when)+'</span>':'')+'<b>'+esc(b.actividad)+'</b>'+(b.lugar?'<span class="lugar">'+esc(b.lugar)+'</span>':'')+'</div>';
+      }).join(''):'<div class="blk rest">Descanso</div>';
+      return '<div class="day'+(hoy?' hoy':'')+'"><h3>'+esc(d.dia)+(fecha?'<small>'+fecha+(hoy?' · hoy':'')+'</small>':'')+'</h3>'+bl+'</div>';
+    }).join('');
+  }
+  draw(CAL);
+  if(window.fetch)fetch('calendario.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.dias)draw(j)}).catch(function(){});
 })();
 </script>
 </body>

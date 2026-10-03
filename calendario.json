@@ -1,0 +1,104 @@
+{
+  "semana": "Semana tipo",
+  "inicio": "",
+  "nota": "",
+  "dias": [
+    {
+      "dia": "Lunes",
+      "bloques": []
+    },
+    {
+      "dia": "Martes",
+      "bloques": [
+        {
+          "momento": "Noche",
+          "hora": "",
+          "actividad": "Pista",
+          "lugar": "",
+          "tipo": "pista"
+        }
+      ]
+    },
+    {
+      "dia": "Miércoles",
+      "bloques": [
+        {
+          "momento": "Mañana",
+          "hora": "",
+          "actividad": "Trote suave",
+          "lugar": "",
+          "tipo": "trote"
+        },
+        {
+          "momento": "Noche",
+          "hora": "",
+          "actividad": "Ruta nocturna",
+          "lugar": "",
+          "tipo": "ruta"
+        }
+      ]
+    },
+    {
+      "dia": "Jueves",
+      "bloques": [
+        {
+          "momento": "Mañana",
+          "hora": "",
+          "actividad": "Canicross",
+          "lugar": "",
+          "tipo": "canicross"
+        },
+        {
+          "momento": "Noche",
+          "hora": "",
+          "actividad": "Bikejoring",
+          "lugar": "",
+          "tipo": "bikejoring"
+        }
+      ]
+    },
+    {
+      "dia": "Viernes",
+      "bloques": [
+        {
+          "momento": "Mañana",
+          "hora": "",
+          "actividad": "Bici",
+          "lugar": "",
+          "tipo": "bici"
+        },
+        {
+          "momento": "Noche",
+          "hora": "",
+          "actividad": "Bikejoring",
+          "lugar": "",
+          "tipo": "bikejoring"
+        }
+      ]
+    },
+    {
+      "dia": "Sábado",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Bikejoring / distancia larga",
+          "lugar": "",
+          "tipo": "bikejoring"
+        }
+      ]
+    },
+    {
+      "dia": "Domingo",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Bici en Tolimán",
+          "lugar": "",
+          "tipo": "bici"
+        }
+      ]
+    }
+  ]
+}
