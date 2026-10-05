@@ -1,6 +1,6 @@
 {
-  "semana": "Semana del 28 de septiembre al 4 de octubre de 2026",
-  "inicio": "2026-09-28",
+  "semana": "Semana del 5 al 11 de octubre de 2026",
+  "inicio": "2026-10-05",
   "nota": "",
   "dias": [
     {
@@ -13,9 +13,9 @@
         {
           "momento": "",
           "hora": "",
-          "actividad": "Trote suave",
+          "actividad": "Correr",
           "lugar": "",
-          "tipo": "trote"
+          "tipo": "correr"
         }
       ]
     },
@@ -25,15 +25,23 @@
         {
           "momento": "",
           "hora": "",
-          "actividad": "Trote suave",
+          "actividad": "Rodillo",
           "lugar": "",
-          "tipo": "trote"
+          "tipo": "rodillo"
         }
       ]
     },
     {
       "dia": "Jueves",
-      "bloques": []
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Correr",
+          "lugar": "",
+          "tipo": "correr"
+        }
+      ]
     },
     {
       "dia": "Viernes",
@@ -41,15 +49,23 @@
         {
           "momento": "",
           "hora": "",
-          "actividad": "Trote suave",
+          "actividad": "Canicross",
           "lugar": "",
-          "tipo": "trote"
+          "tipo": "canicross"
         }
       ]
     },
     {
       "dia": "Sábado",
-      "bloques": []
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Bikejoring",
+          "lugar": "",
+          "tipo": "bikejoring"
+        }
+      ]
     },
     {
       "dia": "Domingo",
@@ -57,9 +73,9 @@
         {
           "momento": "",
           "hora": "",
-          "actividad": "Querétaro Maratón",
+          "actividad": "Ciclismo 30 km",
           "lugar": "",
-          "tipo": "maraton"
+          "tipo": "bici"
         }
       ]
     }
