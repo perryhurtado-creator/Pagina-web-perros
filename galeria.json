@@ -1,0 +1,24 @@
+{
+  "fotos": [
+    {
+      "archivo": "fotos/foto-01.jpg",
+      "alt": "Integrantes del equipo en el bosque con los jerseys del equipo"
+    },
+    {
+      "archivo": "fotos/foto-02.jpg",
+      "alt": "Integrantes del equipo de noche frente a un escenario con forma de castillo y luces"
+    },
+    {
+      "archivo": "fotos/foto-03.jpg",
+      "alt": "Integrantes del equipo con los jerseys sobre una colina, con el campo al fondo"
+    },
+    {
+      "archivo": "fotos/foto-04.jpg",
+      "alt": "Integrantes del equipo con sus medallas junto a un camión naranja después de una carrera"
+    },
+    {
+      "archivo": "fotos/foto-05.jpg",
+      "alt": "Integrantes del equipo sentados en el pasto de un parque al anochecer"
+    }
+  ]
+}
