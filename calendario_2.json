@@ -1,0 +1,67 @@
+{
+  "semana": "Semana del 28 de septiembre al 4 de octubre de 2026",
+  "inicio": "2026-09-28",
+  "nota": "",
+  "dias": [
+    {
+      "dia": "Lunes",
+      "bloques": []
+    },
+    {
+      "dia": "Martes",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Trote suave",
+          "lugar": "",
+          "tipo": "trote"
+        }
+      ]
+    },
+    {
+      "dia": "Miércoles",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Trote suave",
+          "lugar": "",
+          "tipo": "trote"
+        }
+      ]
+    },
+    {
+      "dia": "Jueves",
+      "bloques": []
+    },
+    {
+      "dia": "Viernes",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Trote suave",
+          "lugar": "",
+          "tipo": "trote"
+        }
+      ]
+    },
+    {
+      "dia": "Sábado",
+      "bloques": []
+    },
+    {
+      "dia": "Domingo",
+      "bloques": [
+        {
+          "momento": "",
+          "hora": "",
+          "actividad": "Querétaro Maratón",
+          "lugar": "",
+          "tipo": "maraton"
+        }
+      ]
+    }
+  ]
+}
