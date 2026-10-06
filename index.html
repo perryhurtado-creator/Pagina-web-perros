@@ -133,6 +133,10 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
 .gbar .btn{margin:0;font:inherit;font-weight:700;cursor:pointer}
 .gcount{font-weight:700;min-width:5.5em;text-align:center}
 @media (max-width:760px){.gframe{height:min(62vh,520px);box-shadow:5px 5px 0 var(--green)}}
+
+.calfig{margin:0 0 22px}
+.calfig img{display:block;width:100%;height:auto;border:4px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--green);background:var(--card)}
+@media (max-width:760px){.calfig img{box-shadow:5px 5px 0 var(--green)}}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 </head>
@@ -198,12 +202,10 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
   </section>
   <section class="page" id="calendario" data-title="Calendario">
     <h2 style="margin-top:0">Calendario semanal</h2>
-    <p class="intro" id="cal-semana"></p>
-    <ul class="legend"><li><i style="background:var(--green)"></i>Bikejoring</li><li><i style="background:var(--red)"></i>Canicross</li><li><i style="background:var(--azul)"></i>Bici</li><li><i style="background:var(--ink)"></i>Otras actividades</li></ul>
-    <div class="week" id="cal"></div>
-    <p class="cap" id="cal-nota" style="margin-top:14px"></p>
-    <div class="band tips"><div><h2>Juntos somos más fuertes, juntos corremos más lejos.</h2></div>
-      <ul class="chips"><li>Hidrata a tu perro</li><li>Revisa su equipo</li><li>Respeta sus límites</li><li>Disfruta el camino</li></ul></div>
+    <p class="intro">Las salidas y los entrenamientos de la semana.</p>
+    <figure class="calfig" id="calfig"><img id="calimg" alt="Calendario semanal del equipo Perros en Bicicleta con las actividades de cada día" width="1402" height="1122"></figure>
+    <p class="intro" id="calmsg" hidden>Todavía no hay un calendario publicado.</p>
+    <p><a class="btn alt" id="calopen" href="calendario.png" target="_blank" rel="noopener">Abrir imagen completa</a></p>
   </section>
   <section class="page" id="galeria" data-title="Galería">
     <h2 style="margin-top:0">Galería</h2>
@@ -278,28 +280,6 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
   if(location.hash==='#rutas')initMaps();
 })();
 </script>
-<script>var CAL={"semana":"Semana del 28 de septiembre al 4 de octubre de 2026","inicio":"2026-09-28","nota":"","dias":[{"dia":"Lunes","bloques":[]},{"dia":"Martes","bloques":[{"momento":"","hora":"","actividad":"Trote suave","lugar":"","tipo":"trote"}]},{"dia":"Miércoles","bloques":[{"momento":"","hora":"","actividad":"Trote suave","lugar":"","tipo":"trote"}]},{"dia":"Jueves","bloques":[]},{"dia":"Viernes","bloques":[{"momento":"","hora":"","actividad":"Trote suave","lugar":"","tipo":"trote"}]},{"dia":"Sábado","bloques":[]},{"dia":"Domingo","bloques":[{"momento":"","hora":"","actividad":"Querétaro Maratón","lugar":"","tipo":"maraton"}]}]};
-(function(){
-  var MESES=['enero','febrero','marzo','abril','mayo','junio','julio','agosto','septiembre','octubre','noviembre','diciembre'];
-  var esc=function(s){return String(s==null?'':s).replace(/[&<>"]/g,function(c){return{'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;'}[c]})};
-  function draw(c){
-    var start=c.inicio?new Date(c.inicio+'T12:00:00'):null,now=new Date();now.setHours(12,0,0,0);
-    document.getElementById('cal-semana').textContent=c.semana||'';
-    var nota=document.getElementById('cal-nota');nota.textContent=c.nota||'';nota.style.display=c.nota?'':'none';
-    document.getElementById('cal').innerHTML=c.dias.map(function(d,i){
-      var fecha='',hoy=false;
-      if(start&&!isNaN(start)){var dt=new Date(start.getTime()+i*86400000);fecha=dt.getDate()+' de '+MESES[dt.getMonth()];hoy=Math.round((now-dt)/86400000)===0;}
-      var bl=(d.bloques&&d.bloques.length)?d.bloques.map(function(b){
-        var when=[b.momento,b.hora].filter(Boolean).join(' · ');
-        return '<div class="blk t-'+esc(b.tipo||'otra')+'">'+(when?'<span class="when">'+esc(when)+'</span>':'')+'<b>'+esc(b.actividad)+'</b>'+(b.lugar?'<span class="lugar">'+esc(b.lugar)+'</span>':'')+'</div>';
-      }).join(''):'<div class="blk rest">Descanso</div>';
-      return '<div class="day'+(hoy?' hoy':'')+'"><h3>'+esc(d.dia)+(fecha?'<small>'+fecha+(hoy?' · hoy':'')+'</small>':'')+'</h3>'+bl+'</div>';
-    }).join('');
-  }
-  draw(CAL);
-  if(window.fetch)fetch('calendario.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(j){if(j&&j.dias)draw(j)}).catch(function(){});
-})();
-</script>
 <script>var GAL={"fotos":[{"archivo":"fotos/foto-01.jpg","alt":"Integrantes del equipo en el bosque con los jerseys del equipo"},{"archivo":"fotos/foto-02.jpg","alt":"Integrantes del equipo de noche frente a un escenario con forma de castillo y luces"},{"archivo":"fotos/foto-03.jpg","alt":"Integrantes del equipo con los jerseys sobre una colina, con el campo al fondo"},{"archivo":"fotos/foto-04.jpg","alt":"Integrantes del equipo con sus medallas junto a un camión naranja después de una carrera"},{"archivo":"fotos/foto-05.jpg","alt":"Integrantes del equipo sentados en el pasto de un parque al anochecer"}]};
 (function(){
   var fotos=GAL.fotos,i=0,img=document.getElementById('gimg'),cnt=document.getElementById('gcount'),
@@ -326,6 +306,14 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
   });
   show(0);
   if(window.fetch)fetch('galeria.json',{cache:'no-store'}).then(function(r){return r.ok?r.json():null}).then(function(g){if(g&&g.fotos&&g.fotos.length)load(g)}).catch(function(){});
+})();
+</script>
+<script>
+(function(){
+  var img=document.getElementById('calimg'),fig=document.getElementById('calfig'),msg=document.getElementById('calmsg'),open=document.getElementById('calopen');
+  var url='calendario.png?v='+Math.floor(Date.now()/3600000);
+  img.onerror=function(){fig.hidden=true;open.hidden=true;msg.hidden=false};
+  img.src=url;open.href=url;
 })();
 </script>
 </body>
