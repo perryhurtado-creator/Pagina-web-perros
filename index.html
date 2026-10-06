@@ -19,6 +19,7 @@
 :root[data-theme="dark"]{--bg:#121512;--ink:#f5f1e9;--card:#1b201b;--muted:#b5bbb3;--negra:#f5f1e9}
 html{scroll-padding-top:env(safe-area-inset-top,0px)}
 *,*:before,*:after{box-sizing:inherit}
+[hidden]{display:none!important}
 body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--body);font-size:18px;line-height:1.55}
 a{color:inherit}
 :focus-visible{outline:4px solid var(--red);outline-offset:3px}
@@ -137,6 +138,12 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
 .calfig{margin:0 0 22px}
 .calfig img{display:block;width:100%;height:auto;border:4px solid var(--ink);border-radius:18px;box-shadow:8px 8px 0 var(--green);background:var(--card)}
 @media (max-width:760px){.calfig img{box-shadow:5px 5px 0 var(--green)}}
+
+.about{display:grid;grid-template-columns:1.1fr .9fr;gap:36px;align-items:start}
+.reel{width:100%;max-width:420px;justify-self:center}
+.reel iframe{display:block;width:100%;height:740px;border:4px solid var(--ink);border-radius:18px;background:var(--card);box-shadow:8px 8px 0 var(--green)}
+.reel .cap{margin:14px 0 0;text-align:center}
+@media (max-width:760px){.about{grid-template-columns:1fr}.reel iframe{height:680px;box-shadow:5px 5px 0 var(--green)}}
 @media (prefers-reduced-motion:reduce){.btn{transition:none}}
 </style>
 </head>
@@ -219,7 +226,21 @@ footer{border-top:4px solid var(--ink);max-width:1040px;margin:0 auto;padding:18
       </div>
     </div>
   </section>
-  <section class="page" id="nosotros" data-title="Nosotros"><div class="soon"><h2 style="margin-top:0">Nosotros</h2><p>Aquí irá la historia de la comunidad y cómo sumarse.</p><p><a href="#inicio">Volver al inicio</a></p></div></section>
+  <section class="page" id="nosotros" data-title="Nosotros">
+    <h2 style="margin-top:0">Nosotros</h2>
+    <div class="about">
+      <div>
+        <p class="lead" style="max-width:34ch">Somos una comunidad de perros y bicicletas en Querétaro. Rodamos, corremos y compartimos rutas con cuatro patas al lado.</p>
+        <p>Entrenamos bikejoring, canicross y rodadas, y compartimos cada ruta con su mapa, su nivel y su archivo GPX, para que cada equipo de perro y persona encuentre la suya.</p>
+        <p>Mira cómo es una salida en el video y sigue al equipo en Instagram para enterarte de las próximas rodadas.</p>
+        <p><a class="btn" href="https://www.instagram.com/perrosenbicicleta_/" target="_blank" rel="noopener">Síguenos en Instagram</a></p>
+      </div>
+      <div class="reel">
+        <iframe src="https://www.instagram.com/reel/DS-s3WBkvK_/embed/" title="Video del equipo Perros en Bicicleta en Instagram" loading="lazy" allowfullscreen scrolling="no"></iframe>
+        <p class="cap"><a href="https://www.instagram.com/reel/DS-s3WBkvK_/" target="_blank" rel="noopener">Ver el video en Instagram</a></p>
+      </div>
+    </div>
+  </section>
 </main>
 
 <footer>Perros en Bicicleta. Querétaro, México.</footer>
